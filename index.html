@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fare alert internship</title>
+
+
+
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">  
+  <link href="css/flexslider.css" rel="stylesheet">
+  <link href="css/templatemo-style.css" rel="stylesheet">
+
+  
+ 
+  </head>
+  <body class="tm-gray-bg">
+  	<!-- Header -->
+  	
+  	<div class="tm-header">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-lg-6 col-md-4 col-sm-3 tm-site-name-container">
+  					<a href="index.html" class="tm-site-name">Flight</a>	
+  				</div>
+	  			<div class="col-lg-6 col-md-8 col-sm-9">
+	  				<div class="mobile-menu-icon">
+		              <i class="fa fa-bars"></i>
+		            </div>
+	  				<nav class="tm-nav">
+						<ul>
+							<li><a href="index.html" class="active">Home</a></li>
+							<li><a href="manage.html" >Manage alerts</a></li>
+						
+						</ul>
+					</nav>		
+	  			</div>				
+  			</div>
+  		</div>	  	
+  	</div>
+	
+	<!-- Banner -->
+	<section class="tm-banner">
+		<!-- Flexslider -->
+		<div class="flexslider flexslider-banner">
+		  <ul class="slides">
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title">Find <span class="tm-yellow-text">The Best</span> Place</h1>
+					<p class="tm-banner-subtitle">For Your Holidays</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+				<img src="img/banner-1.jpg" alt="Image" />	
+		    </li>
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title">Lorem <span class="tm-yellow-text">Ipsum</span> Dolor</h1>
+					<p class="tm-banner-subtitle">Wonderful Destinations</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+		      <img src="img/banner-2.jpg" alt="Image" />
+		    </li>
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title">Proin <span class="tm-yellow-text">Gravida</span> Nibhvell</h1>
+					<p class="tm-banner-subtitle">Velit Auctor</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+		      <img src="img/banner-3.jpg" alt="Image" />
+		    </li>
+		  </ul>
+		</div>	
+	</section>
+
+	<!-- gray bg -->	
+	<section class="container tm-home-section-1" id="more">
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-6">
+				<!-- Nav tabs -->
+				<div class="tm-home-box-1">
+					<ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
+					    <li role="presentation" class="active">
+					    	<a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab" >Round Ticket</a>
+					    </li>
+					    <li role="presentation">
+					    	<a href="#car" aria-controls="car" role="tab" data-toggle="tab">One way</a>
+					    </li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+					    <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="hotel">
+					    	<div class="tm-search-box effect2">
+						            	
+								<form  action="subscriber.html" method="get" class="hotel-search-form" onsubmit="return confirm('Do you also want to create a price alert?');">
+									<div class="tm-form-inner">
+										<input type="hidden" name="tripType" value="R">
+										<div class="form-group">
+							            	 <input class="form-control" name="origin" id="origin" placeholder="Origin">
+							          	</div>
+							          	<div class="form-group">
+							            	<input class="form-control" name="destination" id="destination" placeholder="Destination">
+							          	</div>
+							          	<div class="form-group">
+							                <div class='input-group date' id='datetimepicker1'>
+							                    <input type='text' class="form-control" placeholder="Departure Date" name="departureDate" id="departureDate"/>
+							                    <span class="input-group-addon">
+							                        <span class="fa fa-calendar"></span>
+							                    </span>
+							                </div>
+							            </div>
+							          	<div class="form-group">
+							                <div class='input-group date' id='datetimepicker2'>
+							                    <input type='text' class="form-control" placeholder="Return Date" name="returnDate" id="returnDate"/>
+							                    <span class="input-group-addon">
+							                        <span class="fa fa-calendar"></span>
+							                    </span>
+							                </div>
+							            </div>
+							           
+									</div>							
+						            <div class="form-group tm-yellow-gradient-bg text-center">
+						            	  	<button type="submit" name="submit" class="tm-yellow-btn">Find flight</button>
+						            </div>  
+						            </form>
+								
+							</div>
+					    </div>
+					
+					    <div role="tabpanel" class="tab-pane fade tm-white-bg" id="car">
+							<div class="tm-search-box effect2">
+								<form action="subscriber.html" method="get" class="hotel-search-form" onsubmit="return confirm('Do you also want to create a price alert?');">
+									<div class="tm-form-inner">
+									<input type="hidden" name="tripType" value="O">
+									<input type='hidden' name="returnDate" value="" />
+										<div class="form-group">
+							            	<input class="form-control" name="origin" id="origin" placeholder="Origin">
+							          	</div>
+							          	<div class="form-group">
+							            	 <input class="form-control" name="destination" id="destination" placeholder="Destination">
+							          	</div>
+							          	<div class="form-group">
+							                <div class='input-group date' id='datetimepicker1'>
+							                    <input type='text' class="form-control" name="departureDate" id="departureDate" placeholder="Departure Date" />
+							                    <span class="input-group-addon">
+							                        <span class="fa fa-calendar"></span>
+							                    </span>
+							                </div>
+							            </div>
+							       
+							            
+									</div>							
+						            <div class="form-group tm-yellow-gradient-bg text-center">
+						            	<button type="submit" name="submit" class="tm-yellow-btn">Find Flight</button>
+						            </div>  
+								</form>
+							</div>
+					    </div>				    
+					</div>
+				</div>								
+			</div>
+
+			<div class="col-lg-4 col-md-4 col-sm-6">
+				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
+					<img src="img/index-01.jpg" alt="image" class="img-responsive">
+					<a href="#">
+						<div class="tm-green-gradient-bg tm-city-price-container">
+							<span>Paris - New York</span>
+							<span>$500</span>
+						</div>	
+					</a>			
+				</div>				
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-6">
+				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
+					<img src="img/index-02.jpg" alt="image" class="img-responsive">
+					<a href="#">
+						<div class="tm-red-gradient-bg tm-city-price-container">
+							<span>Nice - Paris</span>
+							<span>$100</span>
+						</div>	
+					</a>					
+				</div>				
+			</div>
+		</div>
+
+  
+		
+	</section>		
+	
+	<section class="tm-white-bg section-padding-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="tm-section-header section-margin-top">
+					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+					<div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Popular destinations</h2></div>
+					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>	
+				</div>
+				<div class="col-lg-6">
+					<div class="tm-home-box-3">
+						<div class="tm-home-box-3-img-container">
+							<img src="img/index-07.jpg" alt="image" class="img-responsive">	
+						</div>						
+						<div class="tm-home-box-3-info">
+							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+					        <div class="tm-home-box-2-container">
+							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
+							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+						</div>
+						</div>						
+					</div>					
+			     </div>
+			     <div class="col-lg-6">
+			        <div class="tm-home-box-3">
+						<div class="tm-home-box-3-img-container">
+							<img src="img/index-08.jpg" alt="image" class="img-responsive">	
+						</div>						
+						<div class="tm-home-box-3-info">
+							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+					        <div class="tm-home-box-2-container">
+							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
+							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+						</div>
+						</div>						
+					</div>
+				</div>
+				<div class="col-lg-6">
+				    <div class="tm-home-box-3">
+						<div class="tm-home-box-3-img-container">
+							<img src="img/index-09.jpg" alt="image" class="img-responsive">	
+						</div>						
+						<div class="tm-home-box-3-info">
+							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+					        <div class="tm-home-box-2-container">
+							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
+							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+						</div>
+						</div>						
+					</div>
+			    </div>
+			    <div class="col-lg-6">
+			        <div class="tm-home-box-3">
+						<div class="tm-home-box-3-img-container">
+							<img src="img/index-10.jpg" alt="image" class="img-responsive">	
+						</div>						
+						<div class="tm-home-box-3-info">
+							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+					        <div class="tm-home-box-2-container">
+							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
+							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+						</div>
+						</div>						
+					</div>
+			   	</div>
+			</div>		
+		</div>
+	</section>
+	<footer class="tm-black-bg">
+		<div class="container">
+			<div class="row">
+				<p class="tm-copyright-text">Fare Alert internship Xuner HUANG
+       </p>
+			</div>
+		</div>		
+	</footer>
+
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  	<script type="text/javascript" src="js/moment.js"></script>							<!-- moment.js -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+
+
+   	<script type="text/javascript" src="js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script>
+		// HTML document is loaded. DOM is ready.
+		$(function() {
+
+			$('#hotelCarTabs a').click(function (e) {
+			  e.preventDefault()
+			  $(this).tab('show')
+			})
+
+        	$('.date').datetimepicker({
+            	format: 'YYYY/MM/DD'
+            });
+            $('.date-time').datetimepicker();
+
+			// https://css-tricks.com/snippets/jquery/smooth-scrolling/
+		  	$('a[href*=#]:not([href=#])').click(function() {
+			    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			      var target = $(this.hash);
+			      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			      if (target.length) {
+			        $('html,body').animate({
+			          scrollTop: target.offset().top
+			        }, 1000);
+			        return false;
+			      }
+			    }
+		  	});
+		});
+		
+		// Load Flexslider when everything is loaded.
+		$(window).load(function() {	  		
+
+			  
+
+//	For images only
+		    $('.flexslider').flexslider({
+			    controlNav: false
+		    });
+
+		    });
+		$( function() {
+		    var availableTags = [
+		    "Europe",
+		    "France(FR)",
+		    "Paris",
+		    "Paris(CDG)",
+		    "Paris(ORY)",
+		    "Nice(NCE)",
+		    "Nante(NTE)",
+		    "Toulouse(TLS)",
+		    "Lille(LIL)",
+		    "Bologne(BLQ)",
+		    "Bruxelles(BRU)",
+		    "Bordeaux(BOD)",
+		    "Florence(FLR)",
+		    "Luxembourg(LUX)",
+		    "Marseille(MRS)",
+		    "Metz-Nancy(ETZ)",
+		    "Milan(MXP)",
+		    "Montpellier(MPL)",
+		    "Prague(PRG)",
+		    "Rome(FCO)",
+		    "Rennes(RNS)",
+		    "Strasbourg(SXB)",
+		    "Toulouse(TLS)",
+		    "Venise(VCE)",
+		    "Italy(IT)",
+		    "Sweden(SE)",
+		    "China",
+		    "Aurillac(AUR)",
+		    "Switzerland(CH)",
+		    "Geneva(GVA)",
+		    "Germany(DE)",
+		    "Japan(JP)",
+		    "Asia(Asia)"
+		    ];
+		    $( "#origin" ).autocomplete({
+		      source: availableTags
+		    });
+		     $( "#destination" ).autocomplete({
+		      source: availableTags
+		    });
+		  } );
+
+
+
+	  	
+	</script>
+	
+
+ </body>
+ </html>

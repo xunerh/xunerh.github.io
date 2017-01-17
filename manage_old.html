@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fare alert internship</title>
+
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">  
+  <link href="css/flexslider.css" rel="stylesheet">
+  <link href="css/templatemo-style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript">
+	
+
+	function UserAction() {
+	var email = localStorage.getItem("email");
+	// var url = 'http://rest-service.guides.spring.io/' + email;
+		
+ //    var xhttp = new XMLHttpRequest();
+
+ //    xhttp.open("GET", url, false);
+ //    xhttp.setRequestHeader("Content-type", "application/json");
+ //    xhttp.send();
+    
+ //    var json = xhttp.responseText;
+
+ 	var json = [{"ID":"1","User_Name":"alert1huhibhbh","Active":"Y"},{"ID":"5","User_Name":"alert2","Active":"Y"},{"ID":"10","User_Name":"alert3","Active":"N"}];
+    // alert("Res:"+json+";"+json.length);
+
+    document.getElementById("resultTable").style.display = "block";
+    for (var i = 1; i <= json.length; i++) {
+            tr = $('<tr/>');
+            tr.append("<td style=\"display:none;\">" + json[i-1].ID + "</td>");
+            tr.append("<td>" + i + "</td>");
+            tr.append("<td>" + json[i-1].User_Name + "</td>");
+            tr.append("<td>" + json[i-1].Active + "</td>");
+            if(json[i-1].Active == "Y"){
+				tr.append("<td><input type=\"checkbox\" onchange=\"doalert(this)\"/></td>");
+            }
+            else{
+				 tr.append("<td><input type=\"checkbox\" checked disabled/></td>");
+
+            }
+            // tr.append("<td><input type=\"checkbox\"/></td>");
+            $('table').append(tr);
+        }
+}
+
+function doalert(checkboxElem) {
+	
+       var currentRow = checkboxElem.parentNode.parentNode;
+       var secondColumn = currentRow.getElementsByTagName("td")[0];
+		alert("My text is: " + secondColumn.textContent );
+
+		//send ajax to desactivate
+
+		while(document.getElementById("resultTable").rows.length > 1) {
+  document.getElementById("resultTable").deleteRow(1);
+}
+		 UserAction();
+    }
+
+    function save(){
+		var text_to_save=document.getElementById('email').value;
+		localStorage.setItem("email", text_to_save); // save the item
+		UserAction();
+	}
+
+
+</script>
+  </head>
+  <body class="tm-gray-bg">
+  	<!-- Header -->
+  	<div class="tm-header">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-lg-6 col-md-4 col-sm-3 tm-site-name-container">
+  					<a href="index.html" class="tm-site-name">Flight</a>	
+  				</div>
+	  			<div class="col-lg-6 col-md-8 col-sm-9">
+	  				<div class="mobile-menu-icon">
+		              <i class="fa fa-bars"></i>
+		            </div>
+	  				<nav class="tm-nav">
+						<ul>
+							<li><a href="index.html" class="active">Home</a></li>
+						
+						</ul>
+					</nav>		
+	  			</div>				
+  			</div>
+  		</div>	  	
+  	</div>
+	
+	<!-- Banner -->
+	<section class="tm-banner">
+		<!-- Flexslider -->
+		<div class="flexslider flexslider-banner">
+		  <ul class="slides">
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title">Find <span class="tm-yellow-text">The Best</span> Place</h1>
+					<p class="tm-banner-subtitle">For Your Holidays</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+				<img src="img/banner-1.jpg" alt="Image" />	
+		    </li>
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title">Lorem <span class="tm-yellow-text">Ipsum</span> Dolor</h1>
+					<p class="tm-banner-subtitle">Wonderful Destinations</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+		      <img src="img/banner-2.jpg" alt="Image" />
+		    </li>
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title">Proin <span class="tm-yellow-text">Gravida</span> Nibhvell</h1>
+					<p class="tm-banner-subtitle">Velit Auctor</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+		      <img src="img/banner-3.jpg" alt="Image" />
+		    </li>
+		  </ul>
+		</div>	
+	</section>
+
+	<!-- gray bg -->	
+	<section class="container tm-home-section-1" id="more">
+		<div class="row">
+			<div class="col-lg-2 col-md-2 col-sm-4">
+				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
+							
+				</div>				
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-8">
+			<div class="tm-home-box-4">
+			<ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
+					    <li role="presentation" class="active">
+					    	<a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab" >Manage alerts</a>
+					    </li>
+					 
+					</ul>
+
+			<div class="tab-content">
+					    <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="hotel">
+					    	<div class="tm-search-box effect2">
+				<!-- Nav tabs -->
+				<div class="container" style="padding: 20px">
+ 
+  
+   <div class="form-inline">
+										 		<div class="form-group" style="padding: 20px">
+							            			<input class="form-control" name="email" id="email" placeholder="Input Email" >
+							            		</div>
+							            		
+						            	<button type="submit" name="submit" class="tm-yellow-btn" onclick="save()">Submit</button>
+						           
+							          	</div>
+  <table class="table table-hover" id="resultTable" style="display: none">
+    <thead>
+      <tr>
+       <th style="display:none;">SubscriberId</th>
+	    			<th> </th>
+			        <th>Your alert</th>
+			        <th>Active</th>
+			        <th>Click to desactivate</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+</div>
+				</div>
+				</div>
+				</div>			
+			</div>
+
+		
+			
+	
+		
+	</section>		
+	
+
+	<footer class="tm-black-bg">
+		<div class="container">
+			<div class="row">
+				<p class="tm-copyright-text">Fare Alert internship Xuner HUANG
+                
+               </p>
+			</div>
+		</div>		
+	</footer>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="js/moment.js"></script>							<!-- moment.js -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+<!--
+	<script src="js/froogaloop.js"></script>
+	<script src="js/jquery.fitvid.js"></script>
+-->
+   	<script type="text/javascript" src="js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script>
+	
+		
+		// Load Flexslider when everything is loaded.
+		$(window).load(function() {	  		
+
+			  
+
+//	For images only
+		    $('.flexslider').flexslider({
+			    controlNav: false
+		    });
+
+
+	  	});
+
+	  	function getUrlVars() {
+		    var vars = {};
+		    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
+		    function(m,key,value) {
+		      vars[key] = value;
+		    });
+    return vars;
+  }
+ 
+	</script>
+	
+ </body>
+ </html>

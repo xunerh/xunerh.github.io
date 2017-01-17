@@ -1,0 +1,254 @@
+<html lang="en">
+<head>
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fare alert internship</title>
+
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">  
+  <link href="css/flexslider.css" rel="stylesheet">
+  <link href="css/templatemo-style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript">
+	
+
+	function UserAction() {
+		var email = localStorage.getItem("email");
+		var url = 'http://localhost/V0/fareAlert/manage?email=' + email;
+		 // alert("url"+url);
+	    var xhttp = new XMLHttpRequest();
+
+	    xhttp.open("GET", url, false);
+	 // xhttp.setRequestHeader("Access-Control-Allow-Origin:", "*");
+	    // xhttp.setRequestHeader("Content-type", "application/json");
+
+//{
+// "myArrayList": [
+//   {
+// "myArrayList": [
+//   {
+// "Active": "N",
+// "Alert": " one way trip from BIQ to ORY departure from 2016/12/25 and 2017/01/05",
+// "ID": "10"
+// },
+//   {
+// "Active": "N",
+// "Alert": " one way trip from BIQ to ORY departure on 2016/12/22",
+// "ID": "11"
+// },
+//   {
+// "Active": "Y",
+// "Alert": " one way trip from BOD to LYS departure on 2017/01/12",
+// "ID": "12"
+// }
+// ],
+// }
+// ],
+// }
+	    xhttp.send();
+	   
+	    var json =  JSON.parse(xhttp.responseText);
+	  	// alert("Res1:"+jsonr.replace(/\\/g,"")+";"+";");
+		// var json = jsonr.replace(/\\/g,"");
+		// json = JSON.parse(json);
+		var x = json.myArrayList[0].myArrayList;
+	    document.getElementById("resultTable").style.display = "block";
+	    for (var i = 1; i <= x.length; i++) {
+	            tr = $('<tr/>');
+	            tr.append("<td style=\"display:none;\">" + x[i-1].ID + "</td>");
+	            tr.append("<td>" + i + "</td>");
+	            tr.append("<td>" + x[i-1].Alert + "</td>");
+	            tr.append("<td>" + x[i-1].Active + "</td>");
+	            if(x[i-1].Active == "Y"){
+					tr.append("<td><input type=\"checkbox\" onchange=\"doalert(this)\"/></td>");
+	            }
+	            else{
+					 tr.append("<td><input type=\"checkbox\" checked disabled/></td>");
+
+	            }
+	            // tr.append("<td><input type=\"checkbox\"/></td>");
+	            $('table').append(tr);
+	        }
+	}
+
+	function doalert(checkboxElem) {
+		
+	    var currentRow = checkboxElem.parentNode.parentNode;
+	    var secondColumn = currentRow.getElementsByTagName("td")[0];
+		var subscriberId =secondColumn.textContent;
+		var url = 'http://localhost/V0/fareAlert/deactivate?id=' + subscriberId;
+		// alert("My subscriberId is: " + secondColumn.textContent +"url: "+url);
+	    var xhttp1 = new XMLHttpRequest();
+	    
+	    xhttp1.open("POST", url, false);
+	    xhttp1.setRequestHeader("Access-Control-Allow-Origin","*");
+	 	xhttp1.send();
+		while(document.getElementById("resultTable").rows.length > 1) {
+	    	document.getElementById("resultTable").deleteRow(1);
+		}
+		UserAction();
+	    }
+
+function save(){
+	var text_to_save=document.getElementById('email').value;
+	localStorage.setItem("email", text_to_save); // save the item
+	UserAction();
+}
+function back(){
+	window.localStorage.removeItem("email");
+	location.reload();
+}
+
+
+</script>
+  </head>
+  <body class="tm-gray-bg">
+  	<!-- Header -->
+  	<div class="tm-header">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-lg-6 col-md-4 col-sm-3 tm-site-name-container">
+  					<a href="#" class="tm-site-name">Holiday</a>	
+  				</div>
+	  			<div class="col-lg-6 col-md-8 col-sm-9">
+	  				<div class="mobile-menu-icon">
+		              <i class="fa fa-bars"></i>
+		            </div>
+	  				<nav class="tm-nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="manage.html" class="active">Manage alerts</a></li>
+						
+						</ul>
+					</nav>		
+	  			</div>				
+  			</div>
+  		</div>	  	
+  	</div>
+	
+	<!-- Banner -->
+	<section class="tm-banner">
+		<!-- Flexslider -->
+		<div class="flexslider flexslider-banner">
+		  <ul class="slides">
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title"><span class="tm-yellow-text">Tour</span> Packages</h1>
+					<p class="tm-banner-subtitle">For Your Vacations</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+		      <img src="img/banner-3.jpg" />
+		    </li>
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title">Lorem <span class="tm-yellow-text">Ipsum</span> Dolor</h1>
+					<p class="tm-banner-subtitle">Wonderful Destinations</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+		      <img src="img/banner-2.jpg" />
+		    </li>
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title">Proin <span class="tm-yellow-text">Gravida</span> Nibhvell</h1>
+					<p class="tm-banner-subtitle">Velit Auctor</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+		      <img src="img/banner-1.jpg" />
+		    </li>
+		  </ul>
+		</div>		
+	</section>
+
+	<!-- gray bg -->	
+	<section class="container tm-home-section-1" id="more">
+		<div class="row">
+			<!-- slider -->
+			<div class="flexslider flexslider-about effect2">
+			  <ul class="slides">
+			    <li>
+			      <img src="img/about-1.jpg" alt="image" />
+			      <div class="flex-caption">
+			      <h2 class="slider-title">Manage alerts</h2>
+			      	  <div class="form-inline">
+										 		<div class="form-group" style="padding: 20px">
+							            			<input class="form-control" name="email" id="email" placeholder="Input Email" >
+							            		</div>
+							            		
+						            	<button type="submit" name="submit" class="tm-yellow-btn" style="width:80 " onclick="save()">Submit</button>
+						            <input type="button" value="Back" class="tm-yellow-btn" style="width:80 " onclick="back()"/>
+							          	</div>
+  <table class="table table-hover" id="resultTable" style="display: none">
+    <thead>
+      <tr>
+       <th style="display:none;">SubscriberId</th>
+		<th> </th>
+	    <th>Your alert</th>
+	    <th>Active</th>
+	    <th>Click to deactivate</th>
+      </tr>
+    </thead>
+  </table>
+
+ 
+	</div>			      
+			    </li>
+
+			   
+			  </ul>
+
+			</div>
+
+		</div>
+	
+	
+	</section>		
+	
+	<!-- white bg -->
+	
+	<footer class="tm-black-bg">
+		<div class="container">
+			<div class="row">
+				<p class="tm-copyright-text">Fare Alert internship Xuner HUANG
+                
+               </p>
+			</div>
+		</div>		
+	</footer>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+  	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
+  	<script type="text/javascript" src="js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script>
+		$(function() {
+
+			// https://css-tricks.com/snippets/jquery/smooth-scrolling/
+		  	$('a[href*=#]:not([href=#])').click(function() {
+			    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			      var target = $(this.hash);
+			      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			      if (target.length) {
+			        $('html,body').animate({
+			          scrollTop: target.offset().top
+			        }, 1000);
+			        return false;
+			      }
+			    }
+		  	});		  	
+		});
+		$(window).load(function(){
+			// Flexsliders
+		  	$('.flexslider.flexslider-banner').flexslider({
+			    controlNav: false
+		    });
+		  	$('.flexslider').flexslider({
+		    	animation: "slide",
+		    	directionNav: false,
+		    	slideshow: false
+		  	});
+		});
+	</script>
+ </body>
+ </html>
